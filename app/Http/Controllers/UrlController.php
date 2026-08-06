@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\UrlService;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 class UrlController extends Controller
 {
 
-    public function shorten(Request $request){
+    public function store(Request $request){
 
         //1. validar os dados da requisição
         $request->validate(
@@ -20,12 +22,20 @@ class UrlController extends Controller
         );
 
         //2. criar o código de 6 digitos 72|72|72|72|72|72
-        
-
+        $urlService = new UrlService();
+        $url = $urlService->shorten( $request->url );
 
         //3. retornar a url curta
 
-
+        /*
+            Monta a URL curta baseada no domínio local
+            Retorna a resposta estruturada em JSON (Padrão de API)
+        */
+        return response() -> json([
+            'id' => $url->id,
+            'original' => $url->original_url,
+            'shortened' => url('/' . $url->short_code)
+        ], 201); //status http 201: criado com sucesso
 
     }
 

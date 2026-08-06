@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('urls', function (Blueprint $table) {
             $table->id();
-            $table->string('original_url');
+            $table->string('original_url', 2048);
             $table->string('short_code')->unique();
-            $table->integer('qtd_access');
+            $table->integer('clicks')->default(0);
             $table->timestamps();
         });
     }
