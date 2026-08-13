@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class UrlService{
 
-    public function shorten( string $url ): Url{
+    public static function shorten( string $url ): Url{
 
         //criando um codigo unico
         do{

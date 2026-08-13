@@ -22,8 +22,7 @@ class UrlController extends Controller
         );
 
         //2. criar o código de 6 digitos 72|72|72|72|72|72
-        $urlService = new UrlService();
-        $url = $urlService->shorten( $request->url );
+        $url = UrlService::shorten($request->url);
 
         //3. retornar a url curta
 
