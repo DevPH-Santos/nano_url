@@ -75,12 +75,14 @@ A aplicação estará disponível no endereço:
 text
 http://127.0.0.1:8000
 
-🛠️ Tecnologias utilizadas
+#### 🛠️ Tecnologias utilizadas
 PHP – Linguagem de programação.
 Laravel – Framework backend.
 MySQL – Banco de dados relacional.
 Composer – Gerenciador de dependências.
-📌 Observações
+
+
+#### 📌 Observações
 É necessário ter o PHP instalado e configurado no ambiente.
 O Composer deve estar instalado.
 O MySQL precisa estar em execução.
